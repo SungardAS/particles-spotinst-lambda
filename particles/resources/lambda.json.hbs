@@ -1,0 +1,14 @@
+{{#resource "module:particles-common-core" "base"
+  type="AWS::Lambda::Function"
+}}
+"Properties": {
+  "Handler": "lambda.handler",
+  "Role": {"Ref": "{{roleLogicalId}}"},
+  "Code": {
+    "S3Bucket": "{{s3.bucket}}",
+    "S3Key": "{{assetPath 'spotinst-lambda.zip'}}"
+  },
+  "Runtime": "nodejs",
+  "Timeout": "60"
+}
+{{/resource}}

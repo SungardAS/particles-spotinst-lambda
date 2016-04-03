@@ -1,0 +1,11 @@
+{{#layout}}
+
+  {{resource "execution_role" logicalId="LambdaExecutionRole"}}
+
+  {{resource "lambda" logicalId="Lambda" roleLogicalId="LambdaExecutionRole"}}
+
+  {{output "lambda_name" logicalId="LambdaName" lambdaLogicalId="Lambda"}}
+
+  {{output "lambda_arn" logicalId="LambdaArn" lambdaLogicalId="Lambda"}}
+
+{{/layout}}

@@ -1,0 +1,3 @@
+[submodule "vendor/spotinst-lambda"]
+	path = vendor/spotinst-lambda
+	url = https://github.com/SungardAS/spotinst-lambda
