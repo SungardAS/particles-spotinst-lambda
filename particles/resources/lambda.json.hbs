@@ -3,7 +3,7 @@
 }}
 "Properties": {
   "Handler": "lambda.handler",
-  "Role": {"Ref": "{{roleLogicalId}}"},
+  "Role": {"Fn::GetAtt": ["{{roleLogicalId}}","Arn"]},
   "Code": {
     "S3Bucket": "{{s3.bucket}}",
     "S3Key": "{{assetPath 'spotinst-lambda.zip'}}"
