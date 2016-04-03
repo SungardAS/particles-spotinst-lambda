@@ -2,7 +2,7 @@
   type="AWS::Lambda::Function"
 }}
 "Properties": {
-  "Handler": "lambda.handler",
+  "Handler": "index.handler",
   "Role": {"Fn::GetAtt": ["{{roleLogicalId}}","Arn"]},
   "Code": {
     "S3Bucket": "{{s3.bucket}}",
