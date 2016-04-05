@@ -2,7 +2,6 @@
 
 [![condensation][condensation-image]][condensation-url]
 
-[![NPM][npm-image]][npm-url]
 [![Gitter][gitter-image]][gitter-url]
 
 
