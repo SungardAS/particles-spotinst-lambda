@@ -6,7 +6,7 @@ exec = require('child_process').exec;
 
 module.exports.initialize = function(cb) {
   git.updateSubmodule({ args: '--init --remote' });
-  var child = exec('npm install', {cwd: './vendor/spotinst-lambda'}, function(error, stdout, stderr) {
+  var child = exec('npm --production install', {cwd: './vendor/spotinst-lambda'}, function(error, stdout, stderr) {
     if (error) return cb(error);
   });
 
