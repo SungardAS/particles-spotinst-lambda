@@ -1,7 +1,6 @@
 language: node_js
 sudo: false
 node_js:
-- 6
 - 5
 - 4
 - '0.12'
@@ -20,6 +19,7 @@ deploy:
   on:
     tags: true
     repo: SungardAS/particles-spotinst-lambda
+    node: 6
 env:
   global:
   - secure: Du9W+oB7GIX+uFRiJYvpPrjxz3nFKL1PFN+1jG5+LHqXlF2qkKHP0kFN6p8g9sPfI1Yz7E8pdXWhkCYg68nOBo1WcCaDp4jUwsY664s9ddNRzoYx0yiP/Ys4bbgFKP5sPdapZe2UaMFh7oq2+n+FAfziBY4GDXMrFZt6PCA0R2MUdv3BSyaJgxlyZfKvi2GWqh1S5bTk93Nbo/vJl4sUF73J3ApsNG7M+a7d+3h0FiMS/EM9OnfNDaICLRT6I5j+l9um0+cM+SFkaskvA3EKu5jvQMaZFvM3XL53a1UdHxJsorEkwAeZLJc7+zYymEL353eTQhj99pxENV7mEuaS0M3bEwjCKwgkofCL0HPBOgCey30gKTONEDA1ojAvPdzyBpjvMUuwYvsq+qj+DpKQqoDVpUnB0F4F6MaDcmPV4SVaguxAb60PRQ/LPkZuKazsDbwKvdUmwxlZ5RAhfiUu3fjJePSFsskciPLSicwQYAHCRwFuw1GuCn/kjNgKLC1PiNxBND4+5B96vTpbwf+dpA8zVIBk9ILwtH2Myrc0fN1MnZg+kGe7AjPpdtWSedDJY6jz1udXrWBF0PBaq4lkxn2+zh2f2ZK0fP6QUSNImL7T/3Ls2Vp1iIHJtUX9PnkNkxnX4JhFzv00fB+kivfMnQ9Hsgw8oS0H1HKjZ9LaoUI=
