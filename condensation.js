@@ -5,13 +5,13 @@ zip = require('gulp-zip'),
 exec = require('child_process').exec;
 
 module.exports.initialize = function(cb) {
-  git.updateSubmodule({ args: '--init --remote' });
-  var child = exec('npm --production install', {cwd: './vendor/spotinst-lambda'}, function(error, stdout, stderr) {
+  git.updateSubmodule({ args: '--init --remote', cwd: __dirname });
+  var child = exec('npm --production install', {cwd: __dirname + '/vendor/spotinst-lambda'}, function(error, stdout, stderr) {
     if (error) return cb(error);
   });
 
-  vfs.src('./vendor/spotinst-lambda/**')
+  vfs.src(__dirname + '/vendor/spotinst-lambda/**')
   .pipe(zip('spotinst-lambda.zip'))
-  .pipe(gulp.dest('./particles/assets'))
+  .pipe(gulp.dest(__dirname + '/particles/assets'))
   .on('end', cb);
 };
