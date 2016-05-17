@@ -1,0 +1,26 @@
+language: node_js
+sudo: false
+node_js:
+- 6
+- 5
+- 4
+- '0.12'
+- iojs
+matrix:
+  include:
+  - node_js: 6
+    env: DEPLOY=true
+after_success: if [[ $DEPLOY == "true" ]] ; then ./node_modules/.bin/gulp condensation:deploy
+  ; else echo "no deploy" ; fi
+deploy:
+  provider: npm
+  email: as.us.labs@sungardas.com
+  api_key:
+    secure: jFVBEm/23kgRE4dY+xlpp+FH1moxXX9P7VYUMOHIKD/kpEtN+qciZZxnwmdGsEOLeAIiPszhPUEfvvVfCQxbh5Yc/6IlCgJ0EidMiD+Kod3y2Jvya5QaN3YFl+/ljt2UKUANWwLbxhrDsbTq52RuBTdwyYeaDYdJckVTNEjArR9zB6Tx3AmUmyfRXiupWFXwtLaJ4z4bSMeG+pxmXUqwjRli2voL8PnsVxo/TDfX8TMp2kzM348uFAQ7c91iOxe0p13f1UsVjh5q7y+KkfqDxnVvm88eVw3/A12RQD3nCojfK0N+LYYRvnqophxHS/c9fMbyBY0/sWgdFRUx0DLQxPT2+2NDo+kpOuNniq+y6pEJYvRljR0jzMNzoesFbmJ+vpKCOXaMis6XPSWC8vXDSLQUaalqNOKTFB9ggE8hgC6HpKwQ7XflnB6aZox83aBfpURC/KSXvRr6oD0UsM8Uah9UWAm8YaoXw6SOClAIZUJmu8Ystph2kdsl0xEahj6voflZW4yRsRyhdTN7lNIcszwdO4x4OszJ8PkOX2hEEtXF+igpjgrB6GwvYsa2XA0EvxYb4Ufsx+T96Cu5UzIXOtTV7bcXI9ITPsMms4hSDwbQo25K09gFxFz6i75K7FmCwGXFrlyg9zCpzvT/zGEcf5PuQqE/j3wOPStLOXMxPcQ=
+  on:
+    tags: true
+    repo: SungardAS/particles-spotinst-lambda
+env:
+  global:
+  - secure: Du9W+oB7GIX+uFRiJYvpPrjxz3nFKL1PFN+1jG5+LHqXlF2qkKHP0kFN6p8g9sPfI1Yz7E8pdXWhkCYg68nOBo1WcCaDp4jUwsY664s9ddNRzoYx0yiP/Ys4bbgFKP5sPdapZe2UaMFh7oq2+n+FAfziBY4GDXMrFZt6PCA0R2MUdv3BSyaJgxlyZfKvi2GWqh1S5bTk93Nbo/vJl4sUF73J3ApsNG7M+a7d+3h0FiMS/EM9OnfNDaICLRT6I5j+l9um0+cM+SFkaskvA3EKu5jvQMaZFvM3XL53a1UdHxJsorEkwAeZLJc7+zYymEL353eTQhj99pxENV7mEuaS0M3bEwjCKwgkofCL0HPBOgCey30gKTONEDA1ojAvPdzyBpjvMUuwYvsq+qj+DpKQqoDVpUnB0F4F6MaDcmPV4SVaguxAb60PRQ/LPkZuKazsDbwKvdUmwxlZ5RAhfiUu3fjJePSFsskciPLSicwQYAHCRwFuw1GuCn/kjNgKLC1PiNxBND4+5B96vTpbwf+dpA8zVIBk9ILwtH2Myrc0fN1MnZg+kGe7AjPpdtWSedDJY6jz1udXrWBF0PBaq4lkxn2+zh2f2ZK0fP6QUSNImL7T/3Ls2Vp1iIHJtUX9PnkNkxnX4JhFzv00fB+kivfMnQ9Hsgw8oS0H1HKjZ9LaoUI=
+  - secure: Kodv21zRdViovTxLhVC1Q0bxqRI9p5G83cF4BjLEzdebDRC/aj62MQP3o0IlHvlPMlEgPiSWOa5D0UOEFouvKh6l7n0/M4jaqd+rp/pIezmIf5CNpu2uh9yL3sT9ldPiPfUX7czUOaTeYr5zkwAJOmzAC6Qd1PY6FgF+/S7YADvL9GkWDG456ktD9XsdiMDZOFvsoEDFss154gMSO8TRRDq/8utkz1Gj3aKoOCnQy3zgxpeOdIpajljGlzG6F+3tsSuYDLlF2GgVlIsZ7Txpf4cfNPzOln4dJsxw88AhyUhUDI8DX8/RpEMNGkrmh9JElTndKTCb65pilwbSCtyyo7Yw4wj6Sr//GBmJ4+RQTySGmsZHpcqr2pYvvA7Xhe/3HRYgNWxs7X0ijJ5MXB9+j2x5XueDrRvNilCASr+f7fugOdxBqIEP0+XQSm8UdCdiYH1zzyGC/hwhQC4KzsOfWJBRRizRoLK3rwmtmxKNXl+QTTX2FJIc/TpTS0i1aVwT379sVqFrdSclxtL0kDviZ7QQVNo3vfKRdtKX1cxf4ihB+qH8YwlW6U4jMlHjyb+J/CSXXKggjPLmyVkfWrR+Ic0yE9S3btDWpNJxwCMnaEI9yeGQdU+FaTBVdQ1ZVB5vy22MgUSVU6srTiGIqvQkjf7f/muppMW3/Ts3lyc1WG0=

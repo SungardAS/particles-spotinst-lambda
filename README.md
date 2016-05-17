@@ -2,7 +2,10 @@
 
 [![condensation][condensation-image]][condensation-url]
 
+[![NPM][npm-image]][npm-url]
+[![Build Status][travis-image]][travis-url]
 [![Gitter][gitter-image]][gitter-url]
+[![Dependency Status][daviddm-image]][daviddm-url]
 
 
 ## Summary
@@ -57,3 +60,7 @@ Blog:
 [gitter-image]: https://badges.gitter.im/Join%20Chat.svg
 [gitter-url]: https://gitter.im/SungardAS/condensation?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge
 [spotinst-lambda-url]: https://github.com/SungardAS/spotinst-lambda
+[travis-image]: https://travis-ci.org/SungardAS/particles-spotinst-lambda.svg?branch=develop
+[travis-url]: https://travis-ci.org/SungardAS/particles-spotinst-lambda
+[daviddm-image]: https://david-dm.org/SungardAS/particles-spotinst-lambda.svg?theme=shields.io
+[daviddm-url]: https://david-dm.org/SungardAS/particles-spotinst-lambda
