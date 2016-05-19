@@ -1,5 +1,4 @@
 {{
-  resource "m:core" "base"
-  type="AWS::IAM::Role"
-  properties=(partial "execution_role_properties")
+  resource "m:lambda" "function/execution_role"
+  policyStatement=(partial "execution_role_policy_statement")
 }}

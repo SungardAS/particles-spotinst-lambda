@@ -2,10 +2,9 @@
 
   {{resource "execution_role" logicalId="LambdaExecutionRole"}}
 
-  {{resource "lambda" logicalId="Lambda" roleLogicalId="LambdaExecutionRole"}}
+  {{resource "lambda" logicalId="Lambda" role=(ref "LambdaExecutionRole")}}
 
-  {{output "lambda_name" logicalId="LambdaName" lambdaLogicalId="Lambda"}}
-
-  {{output "lambda_arn" logicalId="LambdaArn" lambdaLogicalId="Lambda"}}
+  {{set "m:lambda" "execution_role/all_outputs" roleLogicalId="Lambda"}}
+  {{set "m:lambda" "function/all_outputs" functionLogicalId="LambdaExecutionRole"}}
 
 {{/layout}}
