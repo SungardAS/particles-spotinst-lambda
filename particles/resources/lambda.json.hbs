@@ -1,14 +1,11 @@
-{{#resource "m:core" "base"
-  type="AWS::Lambda::Function"
+{{
+    resource "m:lambda" "function"
+    handler="index.handler"
+    timeout=60
+    runtime="nodejs4.3"
+    code=(
+      partial "m:lambda" "function/s3_code"
+      s3Bucket=this.s3.bucket
+      s3Key=(assetPath "spotinst-lambda.zip")
+    )
 }}
-"Properties": {
-  "Handler": "index.handler",
-  "Role": {"Fn::GetAtt": ["{{roleLogicalId}}","Arn"]},
-  "Code": {
-    "S3Bucket": "{{s3.bucket}}",
-    "S3Key": "{{assetPath 'spotinst-lambda.zip'}}"
-  },
-  "Runtime": "nodejs",
-  "Timeout": "60"
-}
-{{/resource}}
