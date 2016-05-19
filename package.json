@@ -1,6 +1,6 @@
 {
   "name": "particles-spotinst-lambda",
-  "version": "0.1.0-beta.0",
+  "version": "0.1.0-beta.1",
   "publishConfig": {
     "tag": "beta"
   },
@@ -8,6 +8,7 @@
   "scripts": {
     "test": "./node_modules/.bin/mocha",
     "build": "./node_modules/.bin/gulp condensation:build",
+    "clean": "./node_modules/.bin/gulp condensation:clean",
     "deploy": "./node_modules/.bin/gulp condensation:deploy",
     "gulp": "./node_modules/.bin/gulp"
   },
