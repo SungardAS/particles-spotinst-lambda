@@ -44,6 +44,7 @@
     "gulp-zip": "^3.2.0",
     "particles-core": "^0.4.3",
     "particles-lambda": "0.1.0-beta.3",
+    "tar.gz": "^1.0.5",
     "vinyl-fs": "^2.4.3"
   },
   "devDependencies": {

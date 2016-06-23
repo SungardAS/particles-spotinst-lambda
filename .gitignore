@@ -2,3 +2,5 @@ condensation_errors
 config/local.js
 dist
 node_modules
+vendor/spotinst-lambda**
+npm-debug.log
