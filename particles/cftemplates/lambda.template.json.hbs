@@ -1,7 +1,14 @@
 {{#layout}}
+  {{parameter "m:lambda" "function/timeout" logicalId="Timeout" default="120"}}
 
   {{resource "execution_role" logicalId="LambdaExecutionRole"}}
-  {{resource "lambda" logicalId="Lambda" role=(partial "m:core" "fn_get_att" logicalId="LambdaExecutionRole" attributeName="Arn")}}
+
+  {{
+    resource "lambda"
+    logicalId="Lambda"
+    timeout=(ref "Timeout")
+    role=(partial "m:core" "fn_get_att" logicalId="LambdaExecutionRole" attributeName="Arn")
+  }}
 
   {{set "m:lambda" "execution_role/all_outputs" roleLogicalId="Lambda"}}
   {{set "m:lambda" "function/all_outputs" functionLogicalId="LambdaExecutionRole"}}
