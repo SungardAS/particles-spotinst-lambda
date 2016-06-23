@@ -7,6 +7,7 @@
     resource "lambda"
     logicalId="Lambda"
     timeout=(ref "Timeout")
+    role=(partial "m:core" "fn_get_att" logicalId="ExecutionRole"
   }}
 
   {{set "m:lambda" "execution_role/all_outputs" roleLogicalId="ExecutionRole"}}
