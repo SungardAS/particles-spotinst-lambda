@@ -8,15 +8,15 @@ var zip = require('gulp-zip');
 
 module.exports.initialize = function(cb) {
 
-  exec('npm pack spotinst-lambda', {cwd: './vendor'}, function(error, stdout, stderr) {
+  exec('npm pack spotinst-lambda', {cwd: path.join(__dirname,"vendor")}, function(error, stdout, stderr) {
     if (error) return cb(error);
 
     var filename = stdout;
 
-    targz().extract(path.join('./vendor',filename.trim()), './vendor/spotinst-lambda', function(err){
+    targz().extract(path.join(__dirname,"vendor",filename.trim()), path.join(__dirname,"vendor","spotinst-lambda"), function(err){
       if (error) return cb(error);
 
-      exec("npm install --production", {cwd: "./vendor/spotinst-lambda/package"}, function(error, stdout, stderr) {
+      exec("npm install --production", {cwd: path.join(__dirname,"vendor","spotinst-lambda","package")}, function(error, stdout, stderr) {
         if (error) return cb(error);
         vfs.src("./vendor/spotinst-lambda/package/**")
         .pipe(zip("spotinst-lambda.zip"))
