@@ -1,7 +1,7 @@
 {{
     resource "m:lambda" "function"
     handler="index.handler"
-    timeout=60
+    timeout=120
     runtime="nodejs4.3"
     code=(
       partial "m:lambda" "function/s3_code"

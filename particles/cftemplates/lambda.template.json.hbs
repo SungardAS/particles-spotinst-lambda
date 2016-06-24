@@ -1,9 +1,16 @@
 {{#layout}}
+  {{parameter "m:lambda" "function/timeout" logicalId="Timeout" default="120"}}
 
-  {{resource "execution_role" logicalId="LambdaExecutionRole"}}
-  {{resource "lambda" logicalId="Lambda" role=(partial "m:core" "fn_get_att" logicalId="LambdaExecutionRole" attributeName="Arn")}}
+  {{resource "m:lambda" "function/execution_role" logicalId="ExecutionRole"}}
 
-  {{set "m:lambda" "execution_role/all_outputs" roleLogicalId="Lambda"}}
-  {{set "m:lambda" "function/all_outputs" functionLogicalId="LambdaExecutionRole"}}
+  {{
+    resource "lambda"
+    logicalId="Lambda"
+    timeout=(ref "Timeout")
+    role=(partial "m:core" "fn_get_att" logicalId="ExecutionRole" attributeName="Arn")
+  }}
+
+  {{set "m:lambda" "execution_role/all_outputs" roleLogicalId="ExecutionRole"}}
+  {{set "m:lambda" "function/all_outputs" functionLogicalId="Lambda"}}
 
 {{/layout}}
