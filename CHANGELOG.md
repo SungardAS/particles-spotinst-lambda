@@ -3,7 +3,7 @@ All notable changes to this project will be documented here in
 accordance with [Keep a CHANGELOG][keep-changelog-url].
 This project adheres to [Semantic Versioning][semver-url].
 
-## [Unreleased] - 2016-06-23
+## [0.1.0-beta.3] - 2016-06-24
 ### Added
 - Timeout Parameter (issue #1)
 
