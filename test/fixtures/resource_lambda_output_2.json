@@ -1,0 +1,15 @@
+{
+  "DBCluster": {
+    "Properties": {
+      "Code": {
+        "S3Bucket": "",
+        "S3Key": "particles/assets/spotinst-lambda.zip"
+      },
+      "Handler": "index.handler",
+      "Role": "",
+      "Runtime": "nodejs4.3",
+      "Timeout": 300
+    },
+    "Type": "AWS::Lambda::Function"
+  }
+}
