@@ -18,9 +18,9 @@ module.exports.initialize = function(cb) {
 
       exec("npm install --production", {cwd: path.join(__dirname,"vendor","spotinst-lambda","package")}, function(error, stdout, stderr) {
         if (error) return cb(error);
-        vfs.src("./vendor/spotinst-lambda/package/**")
+        vfs.src(path.join(__dirname,"vendor","spotinst-lambda","package","**"))
         .pipe(zip("spotinst-lambda.zip"))
-        .pipe(gulp.dest("./particles/assets"))
+        .pipe(gulp.dest(path.join(__dirname,"particles","assets")))
         .on('end', cb);
       });
     });
