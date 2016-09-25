@@ -9,10 +9,10 @@
   timeout=timeout
   role=(
     partial "m:core" "fn_get_att"
-    logicalId="ExecutionRole"
+    logicalId=(scopeId "ExecutionRole")
     attributeName="Arn"
   )
 }}
 
-{{set "m:lambda" "execution_role/all_outputs" roleLogicalId="ExecutionRole"}}
-{{set "m:lambda" "function/all_outputs" functionLogicalId="Lambda"}}
+{{set "m:lambda" "execution_role/all_outputs" roleLogicalId=(scopeId "ExecutionRole")}}
+{{set "m:lambda" "function/all_outputs" functionLogicalId=(scopeId "Lambda")}}
