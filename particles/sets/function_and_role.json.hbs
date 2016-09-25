@@ -1,0 +1,18 @@
+{{
+  resource "m:lambda" "function/execution_role"
+  logicalId="ExecutionRole"
+}}
+
+{{
+  resource "lambda"
+  logicalId="Lambda"
+  timeout=timeout
+  role=(
+    partial "m:core" "fn_get_att"
+    logicalId=(scopeId "ExecutionRole")
+    attributeName="Arn"
+  )
+}}
+
+{{set "m:lambda" "execution_role/all_outputs" roleLogicalId=(scopeId "ExecutionRole")}}
+{{set "m:lambda" "function/all_outputs" functionLogicalId=(scopeId "Lambda")}}
